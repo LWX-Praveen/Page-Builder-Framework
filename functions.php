@@ -163,5 +163,17 @@ function wpbf_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'wpbf_scripts', 10 );
 
+function pagebuilder_get_avatar($comment, $size){
+	
+	$email = $comment->comment_author_email;
+	$image_hash = md5($email).'.png';
+	$filename = wp_upload_dir()['basedir']. '/avatar/' . $image_hash;
+	if(!file_exists($filename)) {
+		file_put_contents($filename, file_get_contents(get_avatar_url($email)));
+	}
+	$img_url = wp_upload_dir()['baseurl']. '/avatar/' . $image_hash;
+	$avatar = "<img alt='{$alt}' src='{$img_url}' class='avatar avatar-{$size} photo' height='{$size}' width='{$size}' />";
+	return $avatar;
+}
 // Init.
 require_once WPBF_THEME_DIR . '/inc/init.php';
