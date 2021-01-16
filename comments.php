@@ -32,7 +32,7 @@ if ( post_password_required() )	return;
 			<?php
 			wp_list_comments( array(
 				'avatar_size' => 80,
-				'callback'    => 'wpbf_comments',
+				'callback'    => 'pagebuilder_comments',
 				'reply_text'  => __( 'Reply', 'page-builder-framework' ),
 			) );
 			?>
