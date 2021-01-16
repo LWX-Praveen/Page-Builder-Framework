@@ -14,7 +14,8 @@ define( 'WPBF_CHILD_THEME_DIR', get_stylesheet_directory() );
 define( 'WPBF_CHILD_THEME_URI', get_stylesheet_directory_uri() );
 define( 'WPBF_VERSION', wp_get_theme( 'page-builder-framework' )->get( 'Version' ) );
 define( 'WPBF_CHILD_VERSION', '1.2' );
-
+// added for custom comments 
+require_once get_parent_theme_file_path( '/pb-comments.php' );
 /**
  * Theme setup.
  */
